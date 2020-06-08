@@ -64,7 +64,11 @@ export const data = {
                 channel_order_id: "114-4445040-5154609",
                 channel_id: 3,
                 channel: "amazon",
-                order_products: [{ id: 4822, channel_sku: "GA-NHO-0004TP" }],
+                order_products: [
+                    { id: 2222, channel_sku: "GA-NHO-4264TP" },
+                    { id: 3333, channel_sku: "GA-NHO-5321TP" },
+                    { id: 1111, channel_sku: "GA-NHO-8532TP" },
+                ],
                 channel_status: "Pending",
                 earliestShipDate: "2020-06-08T07:00:00Z",
                 amount: null,

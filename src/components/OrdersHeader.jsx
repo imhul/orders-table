@@ -1,5 +1,5 @@
 import React from 'react';
-import {  } from 'antd';
+import { Space } from 'antd';
 
 const OrdersHeader = ({ channels }) => {
 
@@ -7,7 +7,9 @@ const OrdersHeader = ({ channels }) => {
 
     return (
         <div className="OrdersHeader">
-            OrdersHeader
+            <Space>
+                OrdersHeader
+            </Space>
         </div>
     );
 }
