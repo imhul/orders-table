@@ -9,7 +9,7 @@ const OrdersTable = ({ orders }) => {
         return order
     });
 
-    const [expandedRow, setExpandedRow] = useState(false);
+    const [isRowExpanded, setIsRowExpanded] = useState(false);
 
     const columns = [
         {
@@ -47,7 +47,7 @@ const OrdersTable = ({ orders }) => {
                     return (
                         <div className="expand-icon">
                             {
-                                expandedRow ? 
+                                isRowExpanded ? 
                                 <EyeInvisibleOutlined /> : 
                                 <EyeOutlined />
                             }
@@ -63,19 +63,6 @@ const OrdersTable = ({ orders }) => {
     return (
         <Table 
             expandable={{
-                expandIcon: ({expanded, onExpand, record}) => {
-                    const isHaveToExpand = record.order_products.length > 1;
-                    const icon = expanded ? 
-                        <EyeInvisibleOutlined onClick={e => {
-                            setExpandedRow(false);
-                            return onExpand(record, e)
-                        }} /> : 
-                        <EyeOutlined onClick={e => {
-                            setExpandedRow(true);
-                            return onExpand(record, e);
-                        }} />; 
-                    return isHaveToExpand ? icon : null
-                },
                 expandedRowRender: record => {
                     const products = record.order_products;
                     return (
@@ -105,6 +92,7 @@ const OrdersTable = ({ orders }) => {
                 },
                 rowExpandable: record => record.order_products.length > 1,
                 expandRowByClick: true,
+                onExpandedRowsChange: expandedRows => setIsRowExpanded(!isRowExpanded),
             }}
             columns={columns} 
             dataSource={dataSource}
