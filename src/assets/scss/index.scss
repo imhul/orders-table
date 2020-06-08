@@ -1,6 +1,17 @@
 // constants
-$brand-color: #CB7497;
+$brand-color: #BA2C65;
 
 .Output {
     padding: 25px;
+    .ant-table-cell {
+        // word-break: break-word;
+        &.ant-table-row-expand-icon-cell {
+            display: none;
+        }
+        .expand-icon {
+            & svg {
+                color: $brand-color;
+            }
+        }
+    }
 }

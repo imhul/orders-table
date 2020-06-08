@@ -1,6 +1,7 @@
 {
   "name": "orders-table",
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "antd": "^4.3.3",
     "lodash": "^4.17.15",
     "node-sass": "^4.14.1",
