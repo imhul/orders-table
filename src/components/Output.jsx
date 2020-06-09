@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Space } from 'antd';
+import { Layout } from 'antd';
 
 // components
 import OrdersHeader from './OrdersHeader';
@@ -17,10 +17,8 @@ const Output = () => {
     return (
         <Layout className="Output">
             <Content>
-                <Space direction="vertical">
-                    <OrdersHeader channels={channels} />
-                    <OrdersTable orders={orders} />
-                </Space>
+                <OrdersHeader channels={channels} />
+                <OrdersTable orders={orders} />
             </Content>
         </Layout>
     );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Card, Row, Col, Space, Badge, Tag } from 'antd';
+import { Table, Card, Row, Col, Space, Badge, Tag, Tooltip } from 'antd';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 const OrdersTable = ({ orders }) => {
@@ -15,29 +15,70 @@ const OrdersTable = ({ orders }) => {
         {
             title: 'Channel',
             dataIndex: 'channel',
+            render: text => (
+                <Tooltip title={text}>
+                    <span className="truncate">
+                        { text }
+                    </span>
+                </Tooltip>
+            ),
         },
         {
             title: 'Order #',
             dataIndex: 'channel_order_id',
+            render: text => (
+                <Tooltip title={text}>
+                    <span className="brand-color truncate">
+                        {text}
+                    </span>
+                </Tooltip>
+            ),
         },
         {
             title: 'Purchase',
             dataIndex: 'date',
             sorter: (a, b) => Date.parse(a.date) - Date.parse(b.date),
             sortDirections: ['descend', 'ascend'],
-            render: text => new Date(text).toLocaleString(),
+            render: text => {
+                const title = new Date(text).toLocaleString();
+                return (
+                    <Tooltip title={title}>
+                        <span className="truncate">
+                            { title }
+                        </span>
+                    </Tooltip>
+                )
+            },
         },
         {
             title: "Ship by",
             dataIndex: 'earliestShipDate',
             sorter: (a, b) => Date.parse(a.earliestShipDate) - Date.parse(b.earliestShipDate),
             sortDirections: ['descend', 'ascend'],
-            render: text => new Date(text).toDateString().toLocaleString(),
+            render: text => {
+                const title = new Date(text).toLocaleString();
+                return (
+                    <Tooltip title={title}>
+                        <span className="truncate">
+                            { title }
+                        </span>
+                    </Tooltip>
+                )
+            },
         },
         {
             title: 'Inserted',
             dataIndex: 'date_inserted',
-            render: text => new Date(text).toLocaleString(),
+            render: text => {
+                const title = new Date(text).toLocaleString();
+                return (
+                    <Tooltip title={title}>
+                        <span className="truncate">
+                            { title }
+                        </span>
+                    </Tooltip>
+                )
+            },
         },
         {
             title: 'Products',
@@ -61,7 +102,14 @@ const OrdersTable = ({ orders }) => {
                         </div>
                     )
                 } else {
-                    return text[0].channel_sku
+                    const title = text[0].channel_sku;
+                    return (
+                        <Tooltip title={title}>
+                            <span className="truncate">
+                                { title }
+                            </span>
+                        </Tooltip>
+                    )
                 }
             },
         },
@@ -73,12 +121,12 @@ const OrdersTable = ({ orders }) => {
                 expandedRowRender: record => {
                     const products = record.order_products;
                     return (
-                        <Row gutter={16}>
+                        <Row gutter={[16, 16]}>
                             {
                                 products.map(product => {
                                     return (
-                                        <Col span={8}>
-                                            <Card className="product" key={product.id}>
+                                        <Col sm={24} md={8} key={product.id}>
+                                            <Card className="product">
                                                 <div className="product-id">
                                                     {
                                                         `Product ID: ${product.id}`
@@ -104,6 +152,14 @@ const OrdersTable = ({ orders }) => {
             columns={columns} 
             dataSource={dataSource}
             pagination={false}
+            onHeaderCell={column => {
+                return {
+                        onClick: () => {
+                            console.info("column: ", column)
+                        },
+                    }
+                }
+            }
         />
     );
 }

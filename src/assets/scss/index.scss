@@ -3,8 +3,26 @@ $brand-color: #eb2f96;
 $bg-color: #fff0f6;
 $border-color: #ffadd2;
 
+.brand-color {
+    color: $brand-color;
+}
+
 .Output {
     padding: 25px;
+    .ant-table-thead {
+        & > tr {
+            & > th {
+                overflow-wrap: normal;
+            }
+        }
+    }
+    // .ant-table-tbody { 
+    //     & > tr {
+    //         & > td {
+    //             overflow-wrap: normal;
+    //         }
+    //     }
+    // }
     .ant-table-expanded-row {
         .ant-card-bordered {
             border: 1px solid $border-color;
@@ -13,6 +31,21 @@ $border-color: #ffadd2;
     }
     .ant-table-cell {
         // word-break: break-word;
+        .truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            @media screen and (max-width: 576px) {
+                width: 26px;
+            }
+            @media screen and (min-width: 577px) and (max-width: 768px) {
+                width: 36px;
+            }
+            @media screen and (min-width: 767px) and (max-width: 992px) {
+                width: 80px;
+            }
+        }
         &.ant-table-row-expand-icon-cell {
             display: none;
         }
@@ -27,6 +60,11 @@ $border-color: #ffadd2;
                 }
                 & svg {
                     color: $brand-color;
+                }
+            }
+            .ant-tag {
+                @media screen and (max-width: 1024px) {
+                    display: none;
                 }
             }
         }
