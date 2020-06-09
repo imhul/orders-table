@@ -166,7 +166,7 @@ export const data = {
                 channel: "amazon",
                 order_products: [{ id: 4814, channel_sku: "CA-RMO4BK" }],
                 channel_status: "Unshipped",
-                earliestShipDate: "2020-06-08T07:00:00Z",
+                earliestShipDate: "2020-07-08T07:00:00Z",
                 amount: "116.89",
             },
             {
@@ -178,7 +178,7 @@ export const data = {
                 channel: "amazon",
                 order_products: [{ id: 4813, channel_sku: "GA-NHO-0004BL" }],
                 channel_status: "Unshipped",
-                earliestShipDate: "2020-06-08T07:00:00Z",
+                earliestShipDate: "2020-08-08T07:00:00Z",
                 amount: "202.58",
             },
             {
@@ -190,7 +190,7 @@ export const data = {
                 channel: "amazon",
                 order_products: [{ id: 4812, channel_sku: "YC-SH-32-CA" }],
                 channel_status: "Unshipped",
-                earliestShipDate: "2020-06-08T07:00:00Z",
+                earliestShipDate: "2020-01-08T07:00:00Z",
                 amount: "54.13",
             },
             {

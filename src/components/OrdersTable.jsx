@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Card, Row, Col } from 'antd';
+import { Table, Card, Row, Col, Space, Badge, Tag } from 'antd';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 const OrdersTable = ({ orders }) => {
@@ -23,14 +23,14 @@ const OrdersTable = ({ orders }) => {
         {
             title: 'Purchase',
             dataIndex: 'date',
-            sorter: (a, b) => a.date.length - b.date.length,
+            sorter: (a, b) => Date.parse(a.date) - Date.parse(b.date),
             sortDirections: ['descend', 'ascend'],
             render: text => new Date(text).toLocaleString(),
         },
         {
             title: "Ship by",
             dataIndex: 'earliestShipDate',
-            sorter: (a, b) => a.earliestShipDate.length - b.earliestShipDate.length,
+            sorter: (a, b) => Date.parse(a.earliestShipDate) - Date.parse(b.earliestShipDate),
             sortDirections: ['descend', 'ascend'],
             render: text => new Date(text).toDateString().toLocaleString(),
         },
@@ -46,11 +46,18 @@ const OrdersTable = ({ orders }) => {
                 if (text.length > 1) {
                     return (
                         <div className="expand-icon">
-                            {
-                                isRowExpanded ? 
-                                <EyeInvisibleOutlined /> : 
-                                <EyeOutlined />
-                            }
+                            <Space size="middle">
+                                <Badge count={text.length}>
+                                    {
+                                        isRowExpanded ? 
+                                        <EyeInvisibleOutlined /> : 
+                                        <EyeOutlined />
+                                    }
+                                </Badge>
+                                <Tag color="magenta" >
+                                    more then one
+                                </Tag>
+                            </Space>
                         </div>
                     )
                 } else {
@@ -74,12 +81,12 @@ const OrdersTable = ({ orders }) => {
                                             <Card className="product" key={product.id}>
                                                 <div className="product-id">
                                                     {
-                                                        product.id
+                                                        `Product ID: ${product.id}`
                                                     }
                                                 </div>
                                                 <div className="product-sku">
                                                     {
-                                                        product.channel_sku
+                                                        `Channel SKU: ${product.channel_sku}`
                                                     }
                                                 </div>
                                             </Card>

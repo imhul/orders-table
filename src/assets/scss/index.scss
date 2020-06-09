@@ -1,16 +1,33 @@
 // constants
-$brand-color: #BA2C65;
+$brand-color: #eb2f96;
+$bg-color: #fff0f6;
+$border-color: #ffadd2;
 
 .Output {
     padding: 25px;
+    .ant-table-expanded-row {
+        .ant-card-bordered {
+            border: 1px solid $border-color;
+            background: $bg-color;
+        }
+    }
     .ant-table-cell {
         // word-break: break-word;
         &.ant-table-row-expand-icon-cell {
             display: none;
         }
         .expand-icon {
-            & svg {
-                color: $brand-color;
+            cursor: pointer;
+            .ant-badge {
+                .ant-badge-count {
+                    background: $brand-color;
+                }
+                .anticon {
+                    font-size: 20px;
+                }
+                & svg {
+                    color: $brand-color;
+                }
             }
         }
     }
