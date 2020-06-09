@@ -147,19 +147,11 @@ const OrdersTable = ({ orders }) => {
                 },
                 rowExpandable: record => record.order_products.length > 1,
                 expandRowByClick: true,
-                onExpandedRowsChange: expandedRows => setIsRowExpanded(!isRowExpanded),
+                onExpandedRowsChange: () => setIsRowExpanded(!isRowExpanded),
             }}
             columns={columns} 
             dataSource={dataSource}
             pagination={false}
-            onHeaderCell={column => {
-                return {
-                        onClick: () => {
-                            console.info("column: ", column)
-                        },
-                    }
-                }
-            }
         />
     );
 }

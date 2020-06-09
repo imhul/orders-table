@@ -36,7 +36,9 @@ export const data = {
                 channel: "amazon",
                 channel_description: "RapidDeal",
                 orderByStatus: { Shipped: 169, Canceled: 9 },
-                daysDynamics: [{ day: 2, count: 2, amount: 115.98, perMin: 0.001, countPercent: 0, amountPercent: 0, perMinPercent: 0 }],
+                daysDynamics: [
+                    { day: 2, count: 2, amount: 115.98, perMin: 0.001, countPercent: 0, amountPercent: 0, perMinPercent: 0 }
+                ],
             },
             {
                 channel_id: 3,
