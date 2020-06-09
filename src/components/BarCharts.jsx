@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar } from 'recharts';
+import { BarChart, Bar, Tooltip } from 'recharts';
 
 const BarCharts = ({days}) => {
 
@@ -13,6 +13,7 @@ const BarCharts = ({days}) => {
     return (
         <BarChart width={300} height={100} data={data}>
             <Bar dataKey='value' fill='#1890ff'/>
+            <Tooltip />
         </BarChart>
     );
 }

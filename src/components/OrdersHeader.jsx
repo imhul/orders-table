@@ -70,7 +70,7 @@ const OrdersHeader = ({ channels }) => {
                                         style={{textAlign: 'center'}}
                                         underline={true}
                                     >
-                                        {`${days.length} ${days.length > 1 ? "days" : "day"}`}
+                                        {`${days.length} ${days.length > 1 ? "Days" : "Day"}`}
                                     </Title>
                                     <Row gutter={[16, 16]}>
                                         <Col sm={24} md={12} lg={8}>
